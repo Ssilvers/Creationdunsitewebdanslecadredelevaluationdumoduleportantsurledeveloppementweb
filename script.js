@@ -19,6 +19,21 @@ function geoSuccess(position) {
 }
 
 function geoError(error){
+	if(p.hasAttribute('id',"position")){
+		p.removeAttribute('id',"position");
+		p.setAttribute('id',"erreur");
+	}else{
+		p.removeAttribute('id',"erreur");
+		p.setAttribute('id',"position");
+	}
+	if(d.hasAttribute('id',"distance")){
+		d.removeAttribute('id',"distance");
+		d.setAttribute('id',"erreur");
+	}else{
+		d.removeAttribute('id',"erreur");
+		d.setAttribute('id',"distance");
+	}
+	
 	switch(error.code) {
     case error.PERMISSION_DENIED:
       p.innerHTML = "User denied the request for Geolocation."
