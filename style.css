@@ -1,0 +1,41 @@
+@media screen and ( max-width: 600px ) {
+	body{
+		text-align: left;
+		width: 90%;
+		margin-left: auto;
+		margin-right: auto;
+		border: 3px dashed #d87093;
+	}
+	
+	.color{
+		background-color: #d87093;
+	}
+	
+	h1{
+		color: white;
+	}
+}
+
+@media screen and ( min-width: 601px ){
+	body{
+		text-align: center;
+		width: 50%;
+		border: 3px solid #000000;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	
+	#erreur{
+		font-size: 16pt;
+		background-color: red;
+	}
+	
+	#position, #distance{
+		font-size: 16pt;
+		max-width: 100%;
+		padding-top: 50px;
+		padding-bottom: 50px;
+		text-align: center;
+		background-color: #f0ffff;
+	}
+}
