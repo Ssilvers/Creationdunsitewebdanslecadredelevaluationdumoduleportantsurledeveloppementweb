@@ -3,7 +3,7 @@ var d = document.getElementById("distance");
 
 function getLocation() {
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(geoSuccess, geoError, {timeout:9000});
+    navigator.geolocation.getCurrentPosition(geoSuccess, geoError, {enableHighAccuracy:true, timeout:9000});
   } else {
 	  // A modifier pour fonctionner si nav non supporté
     p.innerHTML = "Geolocation is not supported by this browser.";
