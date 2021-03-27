@@ -22,45 +22,48 @@ function geoError(error){
 	if(p.hasAttribute('id',"position")){
 		p.removeAttribute('id',"position");
 		p.setAttribute('id',"erreur");
-	}else{
+	}
+	else{
 		p.removeAttribute('id',"erreur");
 		p.setAttribute('id',"position");
 	}
 	if(d.hasAttribute('id',"distance")){
 		d.removeAttribute('id',"distance");
 		d.setAttribute('id',"erreur");
-	}else{
+	}
+	else{
 		d.removeAttribute('id',"erreur");
 		d.setAttribute('id',"distance");
 	}
 	
 	switch(error.code) {
-    case error.PERMISSION_DENIED:
-      p.innerHTML = "User denied the request for Geolocation."
-      break;
-    case error.POSITION_UNAVAILABLE:
-      p.innerHTML = "Location information is unavailable."
-      break;
-    case error.TIMEOUT:
-      p.innerHTML = "The request to get user location timed out."
-      break;
-    case error.UNKNOWN_ERROR:
-      p.innerHTML = "An unknown error occurred."
-      break;
+	    case error.PERMISSION_DENIED:
+	      	p.innerHTML = "User denied the request for Geolocation."
+	      	break;
+	    case error.POSITION_UNAVAILABLE:
+	      	p.innerHTML = "Location information is unavailable."
+	      	break;
+	    case error.TIMEOUT:
+	      	p.innerHTML = "The request to get user location timed out."
+	      	break;
+	    case error.UNKNOWN_ERROR:
+	     	p.innerHTML = "An unknown error occurred."
+	      	break;
   }
 }
 
 function calculDistance(startCoords) {
 	var startLatRads = degreesEnRadians(startCoords.latitude);
 	var startLongRads = degreesEnRadians(startCoords.longitude);
-	var destLatRads = degreesEnRadians(47.3121519);
-	var destLongRads = degreesEnRadians(5.0039326);
+	var destLatRads = degreesEnRadians(47.3121843);
+	var destLongRads = degreesEnRadians(5.0736829);
 	var Radius = 6371; // rayon de la Terre en km
 	var distance = Math.acos(Math.sin(startLatRads) * Math.sin(destLatRads) +
 	Math.cos(startLatRads) * Math.cos(destLatRads) *
 	Math.cos(startLongRads - destLongRads)) * Radius;
 	return distance;
 }	
+
 function degreesEnRadians(degrees) {
 	radians = (degrees * Math.PI)/180;
 	return radians;
