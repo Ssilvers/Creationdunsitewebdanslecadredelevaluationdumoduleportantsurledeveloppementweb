@@ -1,4 +1,4 @@
-var p = document.getElementById("position");
+var p = document.getElementById("position");   
 var d = document.getElementById("distance");
 
 function getLocation() {
@@ -12,14 +12,14 @@ function getLocation() {
 
 function geoSuccess(position) {
 	var distance;
-  p.innerHTML = "Votre position est {" + position.coords.latitude.toFixed(2) +
-  ", " + position.coords.longitude.toFixed(2) + "} (avec une précision de 20m)";
-  distance = calculDistance(position.coords);
-  d.innerHTML = "Vous êtes à " + distance.toFixed(2) + " km de l'ESIREM";
+  p.innerHTML = "Votre position est {" + position.coords.latitude.toFixed(2) + 
+  ", " + position.coords.longitude.toFixed(2) + "} (avec une précision de 20m)";  //Affiche la latitude et de la longitude de l'utilisateur sur la page 
+  distance = calculDistance(position.coords);   //Calcul de la distance entre notre position et celle de l'ESIREM
+  d.innerHTML = "Vous êtes à " + distance.toFixed(2) + " km de l'ESIREM";  //Affichage de la distance sur la page
 }
 
 function geoError(error){
-	if(p.hasAttribute('id',"position")){
+	if(p.hasAttribute('id',"position")){  //si l'ID est "position" alors change l'ID en "erreur"
 		p.removeAttribute('id',"position");
 		p.setAttribute('id',"erreur");
 	}
@@ -27,7 +27,7 @@ function geoError(error){
 		p.removeAttribute('id',"erreur");
 		p.setAttribute('id',"position");
 	}
-	if(d.hasAttribute('id',"distance")){
+	if(d.hasAttribute('id',"distance")){  //si l'ID est "distance" alors change l'ID en "erreur"
 		d.removeAttribute('id',"distance");
 		d.setAttribute('id',"erreur");
 	}
@@ -53,10 +53,10 @@ function geoError(error){
 }
 
 function calculDistance(startCoords) {
-	var startLatRads = degreesEnRadians(startCoords.latitude);
-	var startLongRads = degreesEnRadians(startCoords.longitude);
-	var destLatRads = degreesEnRadians(47.3121843);
-	var destLongRads = degreesEnRadians(5.0736829);
+	var startLatRads = degreesEnRadians(startCoords.latitude);    //Conversion en radians de la latitude de l'utilisateur
+	var startLongRads = degreesEnRadians(startCoords.longitude);  //Conversion en radians de la longitude de l'utilisateur
+	var destLatRads = degreesEnRadians(47.3121843);     //Conversion en radians de la latitude de l'ESIREM
+	var destLongRads = degreesEnRadians(5.0736829);     //Conversion en radians de la longitude de l'ESIREM
 	var Radius = 6371; // rayon de la Terre en km
 	var distance = Math.acos(Math.sin(startLatRads) * Math.sin(destLatRads) +
 	Math.cos(startLatRads) * Math.cos(destLatRads) *
