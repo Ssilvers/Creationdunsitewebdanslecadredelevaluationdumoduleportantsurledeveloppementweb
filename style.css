@@ -1,41 +1,48 @@
+/* Fonctions correspondant aux fenêtres de moins de 600px de large */
 @media screen and ( max-width: 600px ) {
 	body{
-		text-align: left;
-		width: 90%;
-		margin-left: auto;
-		margin-right: auto;
-		border: 3px dashed #d87093;
+		text-align: left;			/* Allignement du texte: à gauche */
+		width: 90%;					/* Largeur de la police: à 90% */
+		margin-left: auto;			
+		margin-right: auto;			/* Fenêtre: centrée */
+		border: 3px dashed #d87093; /* Bordure: largeur 3px, de pointillés, rose */
 	}
 	
 	.color{
-		background-color: #d87093;
+		background-color: #d87093;	/* Couleur d'arrière-plan: rose */
 	}
 	
 	h1{
-		color: white;
+		color: white;	/* Police de <h1>: blanche */
 	}
 }
 
+
+
+
+/* Fonctions correspondant aux fenêtres d'au moins 600px de large */
 @media screen and ( min-width: 601px ){
 	body{
-		text-align: center;
-		width: 50%;
-		border: 3px solid #000000;
+		text-align: center;			/* Allignement du texte: centré */
+		width: 50%;					/* Largeur de la police: à 50% */
+		border: 3px solid #000000;	/* Bordure: largeur 3px, pleine, noire */
 		margin-left: auto;
-		margin-right: auto;
+		margin-right: auto;			/* Fenêtre: centrée */
 	}
 	
+	/* Si id de div = erreur */
 	#erreur{
-		font-size: 16pt;
-		background-color: red;
+		font-size: 16pt;			/* Taille de la police: 16pt */
+		background-color: red;		/* Couleur d'arrière-plan: rouge */
 	}
 	
+	/* Si id de div = position ou distance */
 	#position, #distance{
-		font-size: 16pt;
-		max-width: 100%;
-		padding-top: 50px;
-		padding-bottom: 50px;
-		text-align: center;
-		background-color: #f0ffff;
+		font-size: 16pt;			/* Taille de la police: 16pt */
+		max-width: 100%;			/* Largeur de la police: à 100% */
+		padding-top: 50px;			/* Ecart du haut de la fenêtre: 50px */
+		padding-bottom: 50px;		/* Ecart du bas de la fenêtre: 50px */
+		text-align: center;			/* Allignement du texte: centré */
+		background-color: #f0ffff;	/* Couleur d'arrière-plan: bleu-blanc */
 	}
 }

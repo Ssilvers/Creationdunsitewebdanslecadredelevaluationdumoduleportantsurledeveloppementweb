@@ -23,7 +23,7 @@ function geoError(error){
 		p.removeAttribute('id',"position");
 		p.setAttribute('id',"erreur");
 	}
-	else{
+	else{								  //si l'ID est "erreur" alors change l'ID en "position"
 		p.removeAttribute('id',"erreur");
 		p.setAttribute('id',"position");
 	}
@@ -31,22 +31,22 @@ function geoError(error){
 		d.removeAttribute('id',"distance");
 		d.setAttribute('id',"erreur");
 	}
-	else{
+	else{								  //si l'ID est "erreur" alors change l'ID en "distance"
 		d.removeAttribute('id',"erreur");
 		d.setAttribute('id',"distance");
 	}
 	
 	switch(error.code) {
-	    case error.PERMISSION_DENIED:
+	    case error.PERMISSION_DENIED: 		//si l'utilisateur n'a pas autorisé la géolocalisation
 	      	p.innerHTML = "User denied the request for Geolocation."
 	      	break;
-	    case error.POSITION_UNAVAILABLE:
+	    case error.POSITION_UNAVAILABLE:  	//si la position est introuvable
 	      	p.innerHTML = "Location information is unavailable."
 	      	break;
-	    case error.TIMEOUT:
+	    case error.TIMEOUT:  				//si le temps d'attente est trop long (>9000ms)
 	      	p.innerHTML = "The request to get user location timed out."
 	      	break;
-	    case error.UNKNOWN_ERROR:
+	    case error.UNKNOWN_ERROR: 			//si l'erreur est inconnue
 	     	p.innerHTML = "An unknown error occurred."
 	      	break;
   }
@@ -59,8 +59,8 @@ function calculDistance(startCoords) {
 	var destLongRads = degreesEnRadians(5.0736829);     //Conversion en radians de la longitude de l'ESIREM
 	var Radius = 6371; // rayon de la Terre en km
 	var distance = Math.acos(Math.sin(startLatRads) * Math.sin(destLatRads) +
-	Math.cos(startLatRads) * Math.cos(destLatRads) *
-	Math.cos(startLongRads - destLongRads)) * Radius;
+		Math.cos(startLatRads) * Math.cos(destLatRads) *
+		Math.cos(startLongRads - destLongRads)) * Radius;
 	return distance;
 }	
 
