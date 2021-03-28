@@ -5,7 +5,6 @@ function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(geoSuccess, geoError, {enableHighAccuracy:true, timeout:9000});
   } else {
-	  // A modifier pour fonctionner si nav non supporté
     p.innerHTML = "Geolocation is not supported by this browser.";
   }
 }
@@ -70,13 +69,3 @@ function degreesEnRadians(degrees) {
 }
 
 window.onload = getLocation;
-
-
-/*RESTE A FAIRE(-) / REVOIR(?):
-	- Cas où API pas supportée par navigateur
-	? Couleur de fond dans classe ou possible de mettre dans body
-	- Vérifier erreur calcul de distance (perso j'ai une marge de 27km donc semble ok)
-	-? La div erreur pour fonction "geoError"
-	? Vérifier le css
-
-*/
